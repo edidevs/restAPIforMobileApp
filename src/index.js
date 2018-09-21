@@ -5,15 +5,10 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose'; 
 import passport from 'passport'; 
 
-const localStrategy = require('passport-local').Strategy; 
-
-
+const LocalStrategy = require('passport-local').Strategy; 
 
 import config from './config'; 
 import routes from './routes';
-
-
-
 
 let app = express(); 
 app.server = http.createServer(app);
@@ -25,11 +20,10 @@ app.use(bodyParser.json({
 }));
 
 //passport config 
-
-app.use(passport.initiliaze()); 
+app.use(passport.initialize()); 
 let Account = require('./model/account'); 
 
-passport.use(new localStrategy({
+passport.use(new LocalStrategy({
     usernameField : 'email',
     passwordField : 'password'
 }, 
@@ -40,6 +34,8 @@ passport.use(new localStrategy({
 
 passport.serializeUser(Account.serializeUser()); 
 passport.deserializeUser(Account.deserializeUser()); 
+
+
 
 //passport config 
 

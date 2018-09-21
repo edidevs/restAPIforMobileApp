@@ -17,7 +17,7 @@ initializeDb(db => {
     
     //api routes v1 (/v1)
     router.use('/foodtruck', foodtruck({config, db}));
-
+    router.use('/account', account({config, db})); 
 
 });
 

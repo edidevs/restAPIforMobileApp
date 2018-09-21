@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema; 
 
 import passportLocalMongoose  from 'passport-local-mongoose';
-import foodtruck from '../controller/foodtruck';
+
 
 let Account = new Schema ({
     email : {
@@ -18,5 +18,5 @@ let Account = new Schema ({
 });
 
 Account.plugin(passportLocalMongoose); 
-module.exports = mongoose.model('Account', foodtruck({config, db}));
+module.exports = mongoose.model('Account', Account);
 

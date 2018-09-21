@@ -133,7 +133,7 @@ export default function ({config, db}) {
 
         Review.find({foodtruck: req.params.id}, (err, reviews) => {
             if(err){
-                console.log("Error get review " + err); 
+                res.send(err);
             }
 
             res.json(reviews); 
